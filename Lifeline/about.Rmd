@@ -1,0 +1,66 @@
+---
+title: "about"
+author: "Lineline"
+date: "5/15/2019"
+output:
+  md_document:
+    variant: markdown_github
+    
+---
+
+## ABOUT
+### INTRODUCTION
+
+Close to 800 000 people die due to suicide every year, which is one person every 40 seconds. Suicide is a global phenomenon and occurs throughout the lifespan. Effective and evidence-based interventions can be implemented at population, sub-population and individual levels to prevent suicide and suicide attempts.
+
+The objective is to improve the data quality of suicide rates
+
+
+
+```{r echo=FALSE}
+library(sf)
+library(raster)
+library(dplyr)
+library(spData)
+library(spDataLarge)
+library(ggplot2)
+library(shiny)
+library(leaflet)
+library(mapview)
+library(tmap)
+
+#-----------MEOW!
+my=world[world$name_long == "Malaysia",]
+id=world[world$name_long == "Indonesia",]
+ph=world[world$name_long == "Philippines",]
+bn=world[world$name_long == "Brunei Darussalam",]
+vn=world[world$name_long == "Vietnam",]
+th=world[world$name_long == "Thailand",]
+kh=world[world$name_long == "Cambodia",]
+mm=world[world$name_long == "Myanmar",]
+laos=world[world$iso_a2 == "LA",]
+
+mys = tm_shape(my) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Malaysia" )
+
+indo = tm_shape(id) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Indonesia")
+
+phl = tm_shape(ph) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Philippines")
+
+brn = tm_shape(bn) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Brunei")
+
+vnm = tm_shape(vn) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Vietnam")
+
+tha = tm_shape(th) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Thailand")
+
+khm = tm_shape(kh) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Cambodia")
+
+mmr = tm_shape(mm) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Myanmar")
+
+las = tm_shape(laos) + tm_fill(col = "red", alpha = 0.3)+tm_layout(title = "Laos")
+
+tmap_arrange(mys,brn,phl,indo,vnm,tha,khm,mmr,las)
+```
+
+
+
+
